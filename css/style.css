@@ -1,0 +1,389 @@
+@font-face {
+                font-family: 'icomoon';
+                src: url('https://apostille.davxizmat.uz/fonts/icomoon.ttf?h5pgsb') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+                font-display: block;
+            }
+
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #3ca398;
+                border: none;
+            }
+            body {
+                margin: 0;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                font-family: 'Montserrat', sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                background-color: #f6f6f6;
+                color: #333;
+            }
+
+            hr {
+                background-color: #3ca398;
+                color: #3ca398;
+                border: none;
+                height: 1px;
+            }
+
+            .container--max-width {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 5px 24px;
+            }
+
+            /* Header styles */
+            .app-header {
+                background: linear-gradient(180deg, transparent, rgba(49, 49, 49, 0) .01%, rgba(49, 49, 49, .2)), linear-gradient(0deg, #3ca398, #3ca398);;
+                color: white;
+            }
+
+            .app-header__logo {
+                height: 72px;
+                width: auto;
+                margin-right: 24px;
+                vertical-align: middle;
+            }
+
+            .app_header__title {
+                font-size: 22px;
+                font-weight: 600;
+                margin: 0;
+                display: inline-block;
+                vertical-align: middle;
+                max-width: calc(100% - 300px);
+            }
+            .language-btn {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                background: transparent;
+                border: none;
+                color: white;
+                padding: 6px 16px;
+                cursor: pointer;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .language-btn:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            /* Main content styles */
+            .app-main__title {
+                font-size: 32px;
+                font-weight: 600;
+                color: #333;
+                line-height: 1.4;
+            }
+
+            .c-card {
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                margin-bottom: 24px;
+            }
+
+            .c-card__header {
+                padding: 12px 24px 12px 24px;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .c-card__body {
+                padding: 0px 24px 10px 24px;
+            }
+            .c-card-txt {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .c-card__title {
+                font-size: 20px;
+                font-weight: 600;
+                color: #45978c;
+                margin: 0px;
+                padding-top: 8px;
+            }
+
+            /* Form styles */
+            .form-row {
+                display: flex;
+                gap: 24px;
+                margin-bottom: 24px;
+            }
+
+            .form-group {
+                flex: 1;
+            }
+
+            .form-group label {
+                font-size: 15px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 8px;
+                display: block;
+            }
+
+            .form-group input {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                padding: 8px 12px;
+                border: 1px solid #d9d9d9;
+                border-radius: 4px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .form-group input::placeholder {
+                color: #bfbfbf;
+            }
+
+            .form-buttons {
+                display: flex;
+                gap: 12px;
+                justify-content: flex-end;
+            }
+
+            .btn {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 8px 24px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .btn-clear {
+                background: white;
+                border: 1px solid #45978c;
+                color: #45978c;
+            }
+
+            .btn-clear:hover {
+                background: #f6f6f6;
+            }
+
+            .btn-find {
+                background: #45978c;
+                color: white;
+                border: none;
+            }
+
+            .btn-find:hover {
+                background: #3d8478;
+            }
+
+            .required-notice {
+                color: #ff4d4f;
+                font-size: 14px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                margin-top: 8px;
+            }
+
+            /* Contact styles */
+            .contact-section {
+                padding-bottom: 16px;
+                margin-bottom: 16px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .contact-section:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .contact-section h5 {
+                color: #45978c;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 8px;
+                line-height: 1.4;
+            }
+
+            .contact-link {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+            }
+
+            .contact-section a {
+                color: #1890ff;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .contact-section a:hover {
+                text-decoration: underline;
+            }
+
+            /* Footer styles */
+            .app-footer {
+                background: linear-gradient(0deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), linear-gradient(0deg, #3ca398, #3ca398);
+                padding: 3.5px 0;
+                margin-top: auto;
+                color: white;
+                font-size: 12px;
+                
+            }
+
+            .app-footer .container--max-width {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+            }
+
+            .app-footer__left {
+                flex: 1;
+            }
+
+            .app-footer__right {
+                flex-shrink: 0;
+            }
+
+            .app-footer__dev-info {
+                font-size: 12px;
+                line-height: 1.4;
+                color: white;
+                font-weight: 400;
+                text-align: left;
+            }
+
+            .footer-logos {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            
+            .footer-logos img {
+                height: 40px;
+                width: auto;
+                object-fit: contain;
+            }
+
+            /* Text styles */
+            p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #333;
+                margin: 0 0 16px;
+                font-weight: 500;
+            }
+
+            h6 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                margin: 16px 0 8px;
+            }
+
+            /* Search result styles */
+            .search-result-message {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: #333;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .icon-info:before {
+                content: "\e925";
+                color: #1890ff;
+                font-family: 'icomoon' !important;
+            }
+
+            #searchResult {
+                margin-bottom: 24px;
+            }
+
+            @media (max-width: 768px) {
+                .app-header {
+                    padding: 6px 0;
+                }
+
+
+                .app-footer .container--max-width {
+                    flex-direction: column;
+                    gap: 16px;
+                }
+
+                .app-footer__dev-info {
+                    font-size: 11px;
+                    text-align: center;
+                }
+
+                .footer-logos {
+                    gap: 12px;
+                }
+
+                .footer-logos img {
+                    height: 20px;
+                }
+
+                .language-btn {
+                    top: 16px;
+                    right: 16px;
+                }
+            }
+            @media (max-width: 512px) {
+                .app_header__title ,.app-main__title  {
+                    font-size: 24px;
+                    width: 400px;
+                }
+                .c-card__title {
+                    font-size: 15px;
+                }
+                p ,.contact-section h5{
+                    font-size: 12px;
+                }
+                .app-footer__dev-info{
+                    font-size: 12px;
+                }
+               .app-footer img {
+                    width: auto;
+                    height: 40px;
+                }
+                .j1 {
+                    width: 100%;
+                }
+                .language-btn {
+                    display: none;
+                }
+                .header {
+                    justify-content: space-between;
+                    padding: 1px;
+                }
+                .app_header__title {
+                    max-width:70%;
+                    font-size:16px;
+                }
+                .app-header__logo {
+                    max-width:15%;
+                    height: auto;
+                }
+               .form-group label {
+                font-size: 12px
+               }
+               .required-notice {
+                display:none;
+               } 
+            } 

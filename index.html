@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="icon" href="https://apostille.davxizmat.uz/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+        <title>Apostille Verification</title>
+    </head>
+    <body>
+        <noscript>
+            <strong>We're sorry but e-register-client doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        </noscript>
+        <div id="app" data-v-app="">
+            <header class="app-header">
+                <div class="container--max-width header">
+                   <div class="j1">
+                    <img class="app-header__logo" src="./src/gerb.png" alt="Coat of arms of Uzbekistan">
+                    <h2 class="app_header__title">Information system of electronic apostille and electronic register of certified documents</h2>
+                </div>
+                    <button class="language-btn">     
+                        <img src="./src/globe-wh.svg" alt="" width="22px">                   
+                        <span>English</span>
+                    </button>
+                </div>
+            </header>
+            <main class="app-main">
+                <div class="container--max-width">
+                    <h2 class="app-main__title">Verification of affixed apostilles in the Republic of Uzbekistan</h2>
+                    <section class="c-card">
+                        <div class="c-card__header">
+                            <div class="c-card-txt">
+                                <h4 class="c-card__title">For verification, please enter the data of the existing Apostille</h4>                            
+                                <div class="required-notice">
+                                    All fields are required
+                                </div>    
+                            </div>  <hr>                      
+                        </div>                        
+                        <div class="c-card__body">
+                            <form class="search-form" onsubmit="event.preventDefault(); showSearchResult();">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Apostille</label>
+                                        <input type="text" placeholder="Indicate the Apostille number" id="apostilleNumber" required>
+                                    </div>                                    
+                                    <div class="form-group">
+                                        <label>Date of Apostille affixing</label>
+                                        <input type="text" placeholder="Specify the date of affixing" id="apostilleDate" required>
+                                    </div>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="button" class="btn btn-clear" onclick="clearForm()">
+                                        Clear
+                                    </button>
+                                    <button type="submit" class="btn btn-find">
+                                        Find
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section class="c-card" id="searchResult" style="display: none;">
+                        <div class="c-card__header">
+                            <h4 class="c-card__title">About apostille</h4>
+                            <hr>
+                        </div>
+                        <div class="c-card__body">
+                            <div class="search-result-message">
+                                <i class="icon-info"></i>
+                                <span>No results were found for the entered data</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="c-card">
+                        <div class="c-card__header">
+                            <h4 class="c-card__title">About site</h4>
+                            <hr>
+                        </div>
+                        <div class="c-card__body">
+                            <p>
+                                On this website you can verify the authenticity of the Apostille in the Republic of Uzbekistan. 
+                                You can also visually check the scanned versions of the Apostille documents.
+                            </p>
+                            <p>
+                                To verify the issued Apostille, you must enter the number and date of the Apostille document. 
+                                When you click the Search button, the Apostille document and the main document will open. To view a document with
+                                an Apostille, you must enter the registration or serial number of the document in the appropriate field.
+                            </p>
+                            <h6>Reminder</h6>
+                            <p>
+                                The application for the Apostille of documents by the state agency is made through the portal 
+                                <a href="https://my.gov.uz" target="_blank">my.gov.uz</a> - the Single interactive state services portal.
+                            </p>
+                        </div>
+                    </section>
+                    <section class="c-card">
+                        <div class="c-card__header">
+                            <h4 class="c-card__title">Contacts</h4>
+                            <hr>
+                        </div>
+                        <div class="c-card__body">
+                            <div class="contact-section">
+                                <h5>General Prosecutor's Office of the Republic of Uzbekistan</h5>
+                                <div class="contact-link">
+                                    <img src="./src/globe.svg" alt="" width="22px">
+                                    <a href="https://prokuratura.uz" target="_blank">https://prokuratura.uz</a>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <h5>Supreme Court of the Republic of Uzbekistan</h5>
+                                <div class="contact-link">
+                                    <img src="./src/globe.svg" alt="" width="22px">
+                                    <a href="https://sud.uz" target="_blank">https://sud.uz</a>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <h5>Ministry of Justice of the Republic of Uzbekistan</h5>
+                                <div class="contact-link">
+                                    <img src="./src/globe.svg" alt="" width="22px">
+                                    <a href="https://minjust.uz" target="_blank">https://minjust.uz</a>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <h5>The Ministry of Foreign Affairs of the Republic of Uzbekistan</h5>
+                                <div class="contact-link">
+                                    <img src="./src/globe.svg" alt="" width="22px">
+                                    <a href="https://www.mfa.uz" target="_blank">https://www.mfa.uz</a>
+                                </div>
+                            </div>
+                            <div class="contact-section">
+                                <h5>The State Inspection for Supervision of Quality in Education under the Cabinet of Ministers the Republic of Uzbekistan</h5>
+                                <div class="contact-link">
+                                    <img src="./src/globe.svg" alt="" width="22px">
+                                    <a href="https://www.tdi.uz" target="_blank">https://www.tdi.uz</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+            <footer class="app-footer">
+                <div class="container--max-width">
+                    <div class="app-footer__left">
+                        <div class="app-footer__dev-info">
+                            Developed with the support of the Joint Project of the Public Services Agency under the Ministry of Justice of the Republic of Uzbekistan, the European Union and UNDP in Uzbekistan "Improving the delivery of public services and improving the level of governance in rural areas of Uzbekistan.
+                        </div>
+                    </div>
+                    <div class="app-footer__right">
+                        <div class="footer-logos">
+                            <img src="./src/eu_logo.d1762d58.svg" alt="European Union">
+                            <img src="./src/Minjust_logo.bc9e22e2.svg" alt="Ministry of Justice">
+                            <img src="./src/PSA_logo.19b63c13.svg" alt="Public Services Agency">
+                            <img src="./src/UNDP_logo.20a3ce99.svg" alt="UNDP">
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div id="pdfModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <iframe id="pdfViewer" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+        <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #3ca398;
+            margin: 3% auto;
+            padding: 60px 0 0 0;
+            width: 95%;
+            height: 88%;
+            border-radius: 5px;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: regular;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: #000;
+        }
+
+        #pdfViewer {
+            width: 100%;
+            height: calc(100% - -10px);
+            border-radius: 0 0px 10px 10px;
+        }
+        </style>
+        <script>
+        function showSearchResult() {
+            const apostilleNumber = document.getElementById('apostilleNumber').value;
+            
+            // Проверяем, является ли введенное значение 6-значным числом
+            if (/^\d{6}$/.test(apostilleNumber)) {
+                // Открываем PDF в модальном окне
+                const modal = document.getElementById('pdfModal');
+                const pdfViewer = document.getElementById('pdfViewer');
+                pdfViewer.src = `./files/${apostilleNumber}.pdf`;
+                modal.style.display = 'block';
+            } else {
+                // Показываем сообщение об ошибке
+                document.getElementById('searchResult').style.display = 'block';
+                document.querySelector('.search-result-message span').textContent = 
+                    'Пожалуйста, введите 6-значный номер апостиля';
+            }
+        }
+
+        function clearForm() {
+            document.getElementById('apostilleNumber').value = '';
+            document.getElementById('apostilleDate').value = '';
+            document.getElementById('searchResult').style.display = 'none';
+        }
+
+        // Добавляем валидацию для поля ввода номера
+        document.getElementById('apostilleNumber').addEventListener('input', function(e) {
+            // Разрешаем только цифры и ограничиваем длину до 6 символов
+            this.value = this.value.replace(/\D/g, '').slice(0, 6);
+        });
+
+        // Закрытие модального окна при клике на крестик
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('pdfModal').style.display = 'none';
+            document.getElementById('pdfViewer').src = '';
+        });
+
+        // Закрытие модального окна при клике вне его области
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.getElementById('pdfViewer').src = '';
+            }
+        });
+        </script>
+    </body>
+</html> 
