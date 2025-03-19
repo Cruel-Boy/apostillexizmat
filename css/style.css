@@ -1,11 +1,7 @@
-@font-face {
-                font-family: 'icomoon';
-                src: url('https://apostille.davxizmat.uz/fonts/icomoon.ttf?h5pgsb') format('truetype');
-                font-weight: normal;
-                font-style: normal;
-                font-display: block;
-            }
-
+* {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+}
             ::-webkit-scrollbar {
                 width: 4px;
             }
@@ -18,9 +14,9 @@
                 min-height: 100vh;
                 display: flex;
                 flex-direction: column;
-                font-family: 'Montserrat', sans-serif;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
+                /* font-family: 'Montserrat', sans-serif; */
+                /* -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale; */
                 background-color: #f6f6f6;
                 color: #333;
             }
@@ -68,7 +64,7 @@
                 color: white;
                 padding: 6px 16px;
                 cursor: pointer;
-                font-family: 'Montserrat', sans-serif;
+                /* font-family: 'Montserrat', sans-serif; */
                 font-size: 14px;
                 font-weight: 500;
             }
@@ -103,7 +99,10 @@
             }
 
             .c-card__body {
-                padding: 0px 24px 10px 24px;
+                padding: 0px 10px 10px 24px;
+            }
+            .c-card__body h5 {
+                margin: 0;
             }
             .c-card-txt {
                 display: flex;
@@ -112,8 +111,8 @@
             }
             .c-card__title {
                 font-size: 20px;
-                font-weight: 600;
-                color: #45978c;
+                font-weight: 400;
+                color: #3ca398;
                 margin: 0px;
                 padding-top: 8px;
             }
@@ -131,20 +130,30 @@
 
             .form-group label {
                 font-size: 15px;
-                font-weight: 600;
+                font-weight: 400;
                 color: #333;
-                margin-bottom: 8px;
                 display: block;
             }
 
-            .form-group input {
+           .form-group input {
                 font-family: 'Montserrat', sans-serif;
                 font-size: 14px;
                 padding: 8px 12px;
+                /* height: 42px; */
+                width:100%;
                 border: 1px solid #d9d9d9;
                 border-radius: 4px;
-                width: 100%;
                 box-sizing: border-box;
+            }
+
+            .document-input input {
+                font-size: 14px;
+                padding: 8px 12px;
+                border: 1px solid #a19f9f;
+                border-radius: 4px;
+                box-sizing: border-box;
+                height: 42px;
+
             }
 
             .form-group input::placeholder {
@@ -188,14 +197,120 @@
             }
 
             .required-notice {
-                color: #ff4d4f;
+                color: #f68431;
                 font-size: 14px;
                 font-weight: 500;
                 display: flex;
                 align-items: center;
-                margin-top: 8px;
+                display: flex;
+                gap: 5px;
             }
 
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.7);
+            }
+            
+            .modal-content {
+                position: relative;
+                background-color: #3ca398;
+                margin: 3% auto;
+                padding: 60px 0 0 0;
+                width: 95%;
+                height: 88%;
+                border-radius: 5px;
+            }
+            
+            .close-modal {
+                position: absolute;
+                right: 15px;
+                top: 10px;
+                color: #fff;
+                font-size: 36px;
+                font-weight: regular;
+                cursor: pointer;
+            }
+            
+            .close-modal:hover {
+                color: #000;
+            }
+            
+            #pdfViewer {
+                width: 100%;
+                height: calc(100% - -10px);
+                border-radius: 0 0px 10px 10px;
+            }
+            
+            .btn-look {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px; 
+                background-color: #f6f6f67c;
+                border: 2px solid #00a99d;
+                padding: 22px 14px;
+                border-radius: 1px;
+                width: 100%;
+                font-size: 18px;
+                font-weight: 300;
+                color: #000;
+                cursor: pointer;
+                margin-bottom: 15px;
+            }
+            
+            .docic-w {
+                display: none;
+            }
+
+            .btn-look:hover {
+                color: #fff;
+                background-color: #01a68a;
+                transition: all ease-in-out 0.3s;
+            }
+            
+            .btn-look:hover .docic {
+                display: none;
+            }
+
+            .btn-look:hover .docic-w {
+                display: block;
+            }
+
+            .icon-document {
+                background-image: url('./src/document-icon.svg');
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+            }
+            
+            .document-number-input {
+                border: none;
+                width:300px;
+                margin-right: 10px;
+            }
+            
+            .document-look-btn {
+                width: 300px;
+                background-color: #00a99d;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .doc-num {
+                width: 100%;
+                margin-top: 18px;
+                display: flex;
+                gap: 10px;
+                justify-content: flex-start;
+            }
             /* Contact styles */
             .contact-section {
                 padding-bottom: 16px;
@@ -203,11 +318,11 @@
                 border-bottom: 1px solid #f0f0f0;
             }
 
-            .contact-section:last-child {
+            /* .contact-section:last-child {
                 border-bottom: none;
                 margin-bottom: 0;
                 padding-bottom: 0;
-            }
+            } */
 
             .contact-section h5 {
                 color: #45978c;
@@ -216,7 +331,6 @@
                 margin-bottom: 8px;
                 line-height: 1.4;
             }
-
             .contact-link {
                 display: flex;
                 gap: 5px;
@@ -224,7 +338,6 @@
             }
 
             .contact-section a {
-                color: #1890ff;
                 text-decoration: none;
                 font-size: 14px;
                 font-weight: 500;
@@ -305,11 +418,6 @@
                 font-weight: 500;
             }
 
-            .icon-info:before {
-                content: "\e925";
-                color: #1890ff;
-                font-family: 'icomoon' !important;
-            }
 
             #searchResult {
                 margin-bottom: 24px;
@@ -381,9 +489,27 @@
                     height: auto;
                 }
                .form-group label {
-                font-size: 12px
+                    font-size: 12px
                }
                .required-notice {
-                display:none;
+                    display:none;
                } 
-            } 
+               .form-row {
+                    display: flex;
+                    flex-direction: column;
+                }
+                .form-buttons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .form-buttons .btn {
+                    width: 48%;
+                }
+                .doc-num {
+                    flex-direction: column;
+                }
+                .doc-num input, .doc-num .document-look-btn {
+                    width: 100%;
+                }
+            }

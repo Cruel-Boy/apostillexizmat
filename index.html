@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css">
-        <title>Apostille Verification</title>
+        <title>e-register</title>
     </head>
     <body>
         <noscript>
@@ -35,7 +35,7 @@
                             <div class="c-card-txt">
                                 <h4 class="c-card__title">For verification, please enter the data of the existing Apostille</h4>                            
                                 <div class="required-notice">
-                                    All fields are required
+                                <img src="./src/!icon.svg" width="16px"> <span>All fields are required</span>
                                 </div>    
                             </div>  <hr>                      
                         </div>                        
@@ -70,8 +70,33 @@
                         </div>
                         <div class="c-card__body">
                             <div class="search-result-message">
-                                <i class="icon-info"></i>
                                 <span>No results were found for the entered data</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="c-card" id="apostilleInfo" style="display: none;">
+                        <div class="c-card__header">
+                            <h4 class="c-card__title">About apostille</h4>
+                            <hr>
+                        </div>
+                        <div class="c-card__body">
+                            <button type="button" class="btn btn-look" onclick="lookDocument()">
+                                <img class="docic" src="./src/docic.svg" alt="">
+                                <img class="docic-w" src="./src/docic-w.svg" alt="">
+                                <div>
+                                    Apostille No <span id="apostilleCode">******</span> from
+                                </div>
+                            </button>
+                            <p>
+                                To view the document to be apostilled, enter its serial or registration number!
+                            </p>
+                            <div class="document-input">
+                                <label>Document number</label>
+                                <div class="doc-num">
+                                    <input type="text" class="document-number-input" placeholder="Indicate the document number" id="documentNumber" required>
+                                    <button type="button" class="btn btn-look document-look-btn" onclick="lookDocument()">Look</button>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -167,59 +192,17 @@
                 <iframe id="pdfViewer" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
-        <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-        }
-
-        .modal-content {
-            position: relative;
-            background-color: #3ca398;
-            margin: 3% auto;
-            padding: 60px 0 0 0;
-            width: 95%;
-            height: 88%;
-            border-radius: 5px;
-        }
-
-        .close-modal {
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            color: #fff;
-            font-size: 36px;
-            font-weight: regular;
-            cursor: pointer;
-        }
-
-        .close-modal:hover {
-            color: #000;
-        }
-
-        #pdfViewer {
-            width: 100%;
-            height: calc(100% - -10px);
-            border-radius: 0 0px 10px 10px;
-        }
-        </style>
         <script>
         function showSearchResult() {
             const apostilleNumber = document.getElementById('apostilleNumber').value;
+            const apostilleInfo = document.getElementById('apostilleInfo');
+            const apostilleCode = document.getElementById('apostilleCode');
             
             // Проверяем, является ли введенное значение 6-значным числом
             if (/^\d{6}$/.test(apostilleNumber)) {
-                // Открываем PDF в модальном окне
-                const modal = document.getElementById('pdfModal');
-                const pdfViewer = document.getElementById('pdfViewer');
-                pdfViewer.src = `./files/${apostilleNumber}.pdf`;
-                modal.style.display = 'block';
+                // Показываем блок с информацией об апостиле
+                apostilleInfo.style.display = 'block';
+                apostilleCode.textContent = apostilleNumber;
             } else {
                 // Показываем сообщение об ошибке
                 document.getElementById('searchResult').style.display = 'block';
@@ -254,6 +237,15 @@
                 document.getElementById('pdfViewer').src = '';
             }
         });
+
+        function lookDocument() {
+            const apostilleNumber = document.getElementById('apostilleNumber').value;
+            // Открываем PDF в модальном окне
+            const modal = document.getElementById('pdfModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = `./files/${apostilleNumber}.pdf`;
+            modal.style.display = 'block';
+        }
         </script>
     </body>
 </html> 
