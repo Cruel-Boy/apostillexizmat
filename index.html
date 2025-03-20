@@ -222,12 +222,6 @@
                 dateInput.value = apostilleDate;
                 console.log('Заполнено поле даты');
             }
-
-            // Если оба поля заполнены, автоматически запускаем поиск
-            if (apostilleNumber && apostilleDate) {
-                console.log('Запускаем автоматический поиск');
-                showSearchResult();
-            }
         };
 
         function showSearchResult() {
@@ -238,11 +232,6 @@
             if (/^\d{6}$/.test(apostilleNumber)) {
                 apostilleInfo.style.display = 'block';
                 apostilleCode.textContent = apostilleNumber;
-                // Открываем PDF в модальном окне
-                const modal = document.getElementById('pdfModal');
-                const pdfViewer = document.getElementById('pdfViewer');
-                pdfViewer.src = `./files/${apostilleNumber}.pdf`;
-                modal.style.display = 'block';
             } else {
                 document.getElementById('searchResult').style.display = 'block';
                 document.querySelector('.search-result-message span').textContent = 
