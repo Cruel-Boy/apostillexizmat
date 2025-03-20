@@ -193,6 +193,35 @@
             </div>
         </div>
         <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function getQueryParams() {
+                const params = {};
+                const queryString = window.location.search.substring(1);
+                const regex = /([^&=]+)=([^&]*)/g;
+                let match;
+                while (match = regex.exec(queryString)) {
+                    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+                }
+                return params;
+            }
+
+            const queryParams = getQueryParams();
+            const apostilleNumber = queryParams['apostille'];
+            const apostilleDate = queryParams['date'];
+
+            if (apostilleNumber) {
+                document.getElementById('apostilleNumber').value = apostilleNumber;
+            }
+            if (apostilleDate) {
+                document.getElementById('apostilleDate').value = apostilleDate;
+            }
+
+            // Автоматически нажимаем кнопку "Find" после заполнения полей
+            if (apostilleNumber && apostilleDate) {
+                showSearchResult();
+            }
+        });
+
         function showSearchResult() {
             const apostilleNumber = document.getElementById('apostilleNumber').value;
             const apostilleInfo = document.getElementById('apostilleInfo');
@@ -211,17 +240,14 @@
             }
         }
 
-        function clearForm() {
-            document.getElementById('apostilleNumber').value = '';
-            document.getElementById('apostilleDate').value = '';
-            document.getElementById('searchResult').style.display = 'none';
+        function lookDocument() {
+            const apostilleNumber = document.getElementById('apostilleNumber').value;
+            // Открываем PDF в модальном окне
+            const modal = document.getElementById('pdfModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = `./files/${apostilleNumber}.pdf`;
+            modal.style.display = 'block';
         }
-
-        // Добавляем валидацию для поля ввода номера
-        document.getElementById('apostilleNumber').addEventListener('input', function(e) {
-            // Разрешаем только цифры и ограничиваем длину до 6 символов
-            this.value = this.value.replace(/\D/g, '').slice(0, 6);
-        });
 
         // Закрытие модального окна при клике на крестик
         document.querySelector('.close-modal').addEventListener('click', function() {
