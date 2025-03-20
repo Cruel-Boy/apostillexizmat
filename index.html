@@ -193,47 +193,52 @@
             </div>
         </div>
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function getQueryParams() {
-                const params = {};
-                const queryString = window.location.search.substring(1);
-                const regex = /([^&=]+)=([^&]*)/g;
-                let match;
-                while (match = regex.exec(queryString)) {
-                    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
-                }
-                return params;
+        // Дождемся полной загрузки страницы
+        window.onload = function() {
+            console.log('Страница загружена'); // Для отладки
+
+            // Получаем параметры из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            console.log('Параметры URL:', urlParams.toString()); // Для отладки
+
+            // Получаем значения
+            const apostilleNumber = urlParams.get('apostille');
+            const apostilleDate = urlParams.get('date');
+            
+            console.log('Номер апостиля:', apostilleNumber); // Для отладки
+            console.log('Дата:', apostilleDate); // Для отладки
+
+            // Находим элементы формы
+            const apostilleInput = document.getElementById('apostilleNumber');
+            const dateInput = document.getElementById('apostilleDate');
+
+            // Заполняем поля, если есть значения
+            if (apostilleNumber && apostilleInput) {
+                apostilleInput.value = apostilleNumber;
+                console.log('Заполнено поле номера апостиля');
             }
 
-            const queryParams = getQueryParams();
-            const apostilleNumber = queryParams['apostille'];
-            const apostilleDate = queryParams['date'];
-
-            if (apostilleNumber) {
-                document.getElementById('apostilleNumber').value = apostilleNumber;
-            }
-            if (apostilleDate) {
-                document.getElementById('apostilleDate').value = apostilleDate;
+            if (apostilleDate && dateInput) {
+                dateInput.value = apostilleDate;
+                console.log('Заполнено поле даты');
             }
 
-            // Автоматически нажимаем кнопку "Find" после заполнения полей
+            // Если оба поля заполнены, автоматически запускаем поиск
             if (apostilleNumber && apostilleDate) {
+                console.log('Запускаем автоматический поиск');
                 showSearchResult();
             }
-        });
+        };
 
         function showSearchResult() {
             const apostilleNumber = document.getElementById('apostilleNumber').value;
             const apostilleInfo = document.getElementById('apostilleInfo');
             const apostilleCode = document.getElementById('apostilleCode');
             
-            // Проверяем, является ли введенное значение 6-значным числом
             if (/^\d{6}$/.test(apostilleNumber)) {
-                // Показываем блок с информацией об апостиле
                 apostilleInfo.style.display = 'block';
                 apostilleCode.textContent = apostilleNumber;
             } else {
-                // Показываем сообщение об ошибке
                 document.getElementById('searchResult').style.display = 'block';
                 document.querySelector('.search-result-message span').textContent = 
                     'Пожалуйста, введите 6-значный номер апостиля';
@@ -247,6 +252,13 @@
             const pdfViewer = document.getElementById('pdfViewer');
             pdfViewer.src = `./files/${apostilleNumber}.pdf`;
             modal.style.display = 'block';
+        }
+
+        function clearForm() {
+            document.getElementById('apostilleNumber').value = '';
+            document.getElementById('apostilleDate').value = '';
+            document.getElementById('searchResult').style.display = 'none';
+            document.getElementById('apostilleInfo').style.display = 'none';
         }
 
         // Закрытие модального окна при клике на крестик
